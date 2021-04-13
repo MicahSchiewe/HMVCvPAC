@@ -10,7 +10,7 @@ import ecs.baylor.edu.cs5352.kwic_oo.impl.Lines;
 import edu.baylor.cs5352.hmvc.framework.Model;
 import lombok.Getter;
 
-public class OutputModel extends Model<OutputView> {
+public class OutputModel extends Model {
 	private InputOutputHandle handle = new InputOutputHandle();
 
 	private MasterController kwic = new MasterController(handle, new CircularShift(), new Alphabetizer(), handle);

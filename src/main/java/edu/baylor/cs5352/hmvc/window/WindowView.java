@@ -26,4 +26,9 @@ public class WindowView extends View<WindowController, WindowModel> {
 	public void addToRoot(JComponent c) {
 		add(c);
 	}
+
+	@Override
+	public void update() {
+		// no-op
+	}
 }

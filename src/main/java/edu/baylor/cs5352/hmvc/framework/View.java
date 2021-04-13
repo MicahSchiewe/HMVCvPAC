@@ -7,11 +7,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class View<C extends Controller<?>, M extends Model<?>> extends JPanel {
+public abstract class View<C extends Controller<?>, M extends Model> extends JPanel {
 	/** */
 	private static final long serialVersionUID = 1L;
 
 	private C controller;
 
 	private M model;
+
+	public abstract void update();
 }

@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Model<V extends View<?,?>> {
-	private V view;
+public class Model {
+	private View<?,?> view;
 }

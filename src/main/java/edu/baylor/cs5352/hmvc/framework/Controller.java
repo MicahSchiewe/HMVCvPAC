@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class Controller<M extends Model<?>> {
+public abstract class Controller<M extends Model> {
 	private M model;
 	private Controller<?> parent;
 	private List<Controller<?>> children;

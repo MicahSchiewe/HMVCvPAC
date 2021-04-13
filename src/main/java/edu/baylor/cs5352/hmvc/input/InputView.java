@@ -8,7 +8,7 @@ import javax.swing.JTextArea;
 import edu.baylor.cs5352.hmvc.framework.Model;
 import edu.baylor.cs5352.hmvc.framework.View;
 
-public class InputView extends View<InputController, Model<?>> {
+public class InputView extends View<InputController, Model> {
 	/** */
 	private static final long serialVersionUID = 1L;
 
@@ -22,7 +22,9 @@ public class InputView extends View<InputController, Model<?>> {
 
 		// Submit button
 		JButton submit = new JButton("KWIC");
-		submit.addActionListener(e -> getController().submitLines(input.getText()));
+		submit.addActionListener(e -> {
+			getController().submitLines(input.getText());
+		});
 
 		// Main panel
 		JPanel pane = new JPanel();
@@ -36,5 +38,10 @@ public class InputView extends View<InputController, Model<?>> {
 
 	public void renderLines(String lines) {
 		input.setText(lines);
+	}
+
+	@Override
+	public void update() {
+		// no-op
 	}
 }

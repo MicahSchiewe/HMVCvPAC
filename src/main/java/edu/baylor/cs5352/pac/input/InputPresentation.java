@@ -21,7 +21,9 @@ public class InputPresentation extends Presentation<InputControl> {
 
 		// Submit button
 		JButton submit = new JButton("KWIC");
-		submit.addActionListener(e -> getControl().submitLines(input.getText()));
+		submit.addActionListener(e -> {
+			getControl().submitLines(input.getText());
+		});
 
 		// Main panel
 		JPanel pane = new JPanel();
