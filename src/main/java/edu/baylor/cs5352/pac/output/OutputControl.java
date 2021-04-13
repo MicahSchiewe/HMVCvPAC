@@ -12,7 +12,7 @@ public class OutputControl extends Control<OutputPresentation, OutputAbstraction
 	@Override
 	public void handleEvent(ICommunication c) {
 		if (c instanceof InputLinesCommunication) {
-			getAbstraction().runKWIC(List.of(((InputLinesCommunication) c).getLines().split(System.lineSeparator())));
+			getAbstraction().runKWIC(List.of(((InputLinesCommunication) c).getLines().split("\n")));
 		}
 	}
 

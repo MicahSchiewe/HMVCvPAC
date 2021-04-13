@@ -1,4 +1,4 @@
-package edu.baylor.cs5352.pac.output;
+package edu.baylor.cs5352.hmvc.output;
 
 import java.util.List;
 
@@ -7,10 +7,10 @@ import ecs.baylor.edu.cs5352.kwic_oo.MasterController;
 import ecs.baylor.edu.cs5352.kwic_oo.impl.Alphabetizer;
 import ecs.baylor.edu.cs5352.kwic_oo.impl.CircularShift;
 import ecs.baylor.edu.cs5352.kwic_oo.impl.Lines;
-import edu.baylor.cs5352.pac.root.Abstraction;
+import edu.baylor.cs5352.hmvc.framework.Model;
 import lombok.Getter;
 
-public class OutputAbstraction extends Abstraction<OutputControl> {
+public class OutputModel extends Model<OutputView> {
 	private InputOutputHandle handle = new InputOutputHandle();
 
 	private MasterController kwic = new MasterController(handle, new CircularShift(), new Alphabetizer(), handle);
@@ -18,8 +18,8 @@ public class OutputAbstraction extends Abstraction<OutputControl> {
 	@Getter
 	private Lines lines;
 
-	public OutputAbstraction(OutputControl out) {
-		setControl(out);
+	public OutputModel(OutputView view) {
+		setView(view);
 	}
 
 	public void runKWIC(List<String> lines) {
@@ -27,8 +27,6 @@ public class OutputAbstraction extends Abstraction<OutputControl> {
 		handle.setBuffer(new Lines(lines));
 		kwic.kwic();
 		this.lines = handle.getBuffer();
-
-		// Ship results
-		getControl().pushLines(this.lines);
+		getView().update();
 	}
 }

@@ -1,4 +1,4 @@
-package edu.baylor.cs5352.pac.output;
+package ecs.baylor.edu.cs5352.kwic_oo;
 
 import ecs.baylor.edu.cs5352.kwic_oo.impl.Lines;
 import ecs.baylor.edu.cs5352.kwic_oo.interfaces.IInput;
